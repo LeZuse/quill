@@ -113,7 +113,10 @@ class Wrapper
   nextLineNode: (root) ->
     nextNode = @node.nextSibling
     if !nextNode? and @node.parentNode != root
-      nextNode = @node.parentNode.nextSibling
+      next = @node.parentNode
+      until next.nextSibling or next.parentNode == root
+        next = next.parentNode
+      nextNode = next.nextSibling
     if nextNode? and dom.LIST_TAGS[nextNode.tagName]?
       nextNode = nextNode.firstChild
     return nextNode

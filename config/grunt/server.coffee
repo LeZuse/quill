@@ -2,7 +2,7 @@ _ = require('lodash')
 browserify = require('browserify')
 coffeeify = require('coffeeify')
 fs = require('fs')
-harp = require('harp')
+# harp = require('harp')
 proxy = require('http-proxy')
 stylify = require('stylify')
 stylus = require('stylus')
@@ -73,7 +73,7 @@ module.exports = (grunt) ->
         connect.karmaProxy = proxy.createProxyServer({ target: "http://localhost:#{grunt.config('karmaPort')}" })
       middleware: (connect, options, middlewares) ->
         middlewares.push(serve.bind(this, connect))
-        middlewares.push(harp.mount(__dirname + '/../..'))
+        # middlewares.push(harp.mount(__dirname + '/../..'))
         return middlewares
       debug: true
     server:

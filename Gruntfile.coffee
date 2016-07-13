@@ -30,20 +30,20 @@ module.exports = (grunt) ->
 
   grunt.registerTask('server', ['connect:server:keepalive'])
 
-  grunt.registerTask('test', ['test:unit'])
+  # grunt.registerTask('test', ['test:unit'])
 
-  grunt.registerTask('test:unit', ['connect:server', 'karma:test'])
-  grunt.registerTask('test:wd', ['connect:server', 'protractor:test'])
-  grunt.registerTask('test:e2e', ['connect:server', 'protractor:e2e'])
+  # grunt.registerTask('test:unit', ['connect:server', 'karma:test'])
+  # grunt.registerTask('test:wd', ['connect:server', 'protractor:test'])
+  # grunt.registerTask('test:e2e', ['connect:server', 'protractor:e2e'])
 
-  grunt.registerTask('test:coverage', [
-    'lodash', 'coffee:quill', 'istanbul:instrument'
-    'connect:server', 'karma:coverage', 'istanbul:report'
-    'clean:coverage'
-  ])
+  # grunt.registerTask('test:coverage', [
+  #   'lodash', 'coffee:quill', 'istanbul:instrument'
+  #   'connect:server', 'karma:coverage', 'istanbul:report'
+  #   'clean:coverage'
+  # ])
 
-  _.each(browsers, (config, browser) ->
-    grunt.registerTask("travis:unit-#{browser}", ['connect:server', "karma:#{browser}"])
-    grunt.registerTask("travis:wd-#{browser}", ['connect:server', 'sauce_connect:quill', "protractor:wd-#{browser}"])
-    grunt.registerTask("travis:e2e-#{browser}", ['connect:server', 'sauce_connect:quill', "protractor:e2e-#{browser}"])
-  )
+  # _.each(browsers, (config, browser) ->
+  #   grunt.registerTask("travis:unit-#{browser}", ['connect:server', "karma:#{browser}"])
+  #   grunt.registerTask("travis:wd-#{browser}", ['connect:server', 'sauce_connect:quill', "protractor:wd-#{browser}"])
+  #   grunt.registerTask("travis:e2e-#{browser}", ['connect:server', 'sauce_connect:quill', "protractor:e2e-#{browser}"])
+  # )
